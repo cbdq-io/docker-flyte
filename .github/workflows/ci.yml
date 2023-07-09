@@ -11,7 +11,7 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
-  build:
+  CI:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,5 +26,8 @@ jobs:
       - name: Scan Image
         uses: anchore/scan-action@v3
         with:
+            by-cve: true
             fail-build: true
             image: "flyte:latest"
+            only-fixed: true
+            output-format: table
