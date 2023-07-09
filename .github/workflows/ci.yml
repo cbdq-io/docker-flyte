@@ -22,3 +22,9 @@ jobs:
 
       - name: Build
         run: make build
+
+      - name: Scan Image
+        uses: anchore/scan-action@v3
+        with:
+            fail-build: true
+            image: "flyte:latest"
