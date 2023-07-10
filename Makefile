@@ -1,6 +1,6 @@
 .EXPORT_ALL_VARIABLES:
 
-BUILD_INCREMENT = "-2"
+BUILD_INCREMENT = -2
 
 FLYTE_KIT_VERSION = 1.7.0
 
@@ -12,6 +12,9 @@ DOCKER_TAG = ${FLYTE_KIT_VERSION}-${FLYTE_PYTHON_VERSION}
 GIT_TAG = ${FLYTE_KIT_VERSION}-${FLYTE_PYTHON_VERSION}${BUILD_INCREMENT}
 
 default: lint build test clean
+
+changelog:
+	gitchangelog > CHANGELOG.md
 
 build:
 	@echo "Docker tag is ${DOCKER_TAG}"
@@ -54,6 +57,16 @@ multi-build-tagged:
           --tag ghcr.io/cbdq-io/flyte:latest \
           --tag ghcr.io/cbdq-io/flyte:${DOCKER_TAG} \
 	  .
+
+release-branch:
+	git checkout develop
+	git fetch -p origin
+	git pull
+	git checkout -b release/$(GIT_TAG)
+
+release-commit: changelog
+	git add .
+	git commit -m 'chg: doc: Changes for release $(GIT_TAG). !minor'
 
 tag:
 	git tag ${GIT_TAG}
