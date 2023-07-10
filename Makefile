@@ -35,6 +35,19 @@ cleanall:
 lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
 
+multi-build:
+	@echo "Docker tag is ${DOCKER_TAG}"
+	@echo "Git tag is ${GIT_TAG}"
+	docker buildx create --use
+	docker buildx build --platform=linux/amd64,linux/arm64 \
+          --build-arg FLYTE_KIT_VERSION=${FLYTE_KIT_VERSION} \
+          --build-arg FLYTE_PYTHON_VERSION=${FLYTE_PYTHON_VERSION} \
+		  --tag flyte:latest \
+          --tag ghcr.io/cbdq-io/flyte:latest \
+          --tag ghcr.io/cbdq-io/flyte:${DOCKER_TAG} \
+	  .
+	docker images
+
 push:
 	docker push ghcr.io/cbdq-io/flyte:${DOCKER_TAG}
 
