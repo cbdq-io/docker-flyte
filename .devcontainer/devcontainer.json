@@ -17,7 +17,18 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "docker --version",
+	"postCreateCommand": "pip install -r /workspaces/docker-flyte/tests/resources/sut/requirements-dev.txt",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"github.vscode-github-actions",
+				"ms-azuretools.vscode-docker",
+				"stevejpurves.cucumber",
+				"ms-python.python",
+				"ms-vscode.makefile-tools"
+			]
+		}
+	},
 
 	// Configure tool-specific properties.
 	// "customizations": {},
