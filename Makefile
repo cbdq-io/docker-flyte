@@ -27,6 +27,7 @@ build:
 
 clean:
 	docker compose -f docker-compose.test.yml down -t 0
+	docker compose -f examples/wine/docker-compose.yml down -t 0
 
 cleanall:
 	docker system prune --all --force

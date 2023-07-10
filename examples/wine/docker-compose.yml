@@ -1,0 +1,11 @@
+---
+version: "3"
+
+services:
+  example:
+    build: .
+    command: ["run", "example.py", "training_workflow", "--hyperparameters", '{"C": 0.1}']
+    entrypoint: pyflyte
+    volumes:
+      - ".:/example"
+    working_dir: /example
