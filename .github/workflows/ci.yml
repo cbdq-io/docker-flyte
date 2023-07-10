@@ -29,6 +29,9 @@ jobs:
       - name: Build
         run: make build
 
+      - name: Test
+        run: make test
+
       - name: Scan Image
         uses: anchore/scan-action@v3
         with:
