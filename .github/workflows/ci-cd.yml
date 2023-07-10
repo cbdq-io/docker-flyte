@@ -20,7 +20,7 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
-  CI:
+  CI-CD:
     runs-on: ubuntu-latest
 
     steps:
@@ -52,17 +52,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Multi-Platform Build
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
-        run: make multi-build
-
       - name: Push Latest Image
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
-        run: docker push ghcr.io/cbdq-io/flyte:latest
+        if: github.ref == 'refs/heads/develop'
+        run: make multi-build-latest
 
-      - name: Push Tagged Image
+      - name: Push Tagged and Latest Image
         if: github.ref == 'refs/heads/main'
-        run: make push
+        run: make multi-build-tagged
 
       - name: Create Tag
         if: github.ref == 'refs/heads/main'
