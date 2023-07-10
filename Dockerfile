@@ -16,7 +16,7 @@ RUN apt-get clean \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && pip install --no-cache-dir flytekit==${FLYTE_KIT_VERSION} \
-  && useradd --home-dir /home/flyte --create-home --uid ${FLYTE_UID} flyte
+  && useradd --home-dir /home/flyte --create-home --uid ${FLYTE_UID} --shell /usr/sbin/nologin flyte
 
 USER flyte
 
