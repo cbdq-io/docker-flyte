@@ -1,5 +1,4 @@
 Feature: Docker Image for Flyte
-
     Scenario: Python Version
         Given the host with URL "local://" is ready
         When the command is "python3 --version"
@@ -21,3 +20,15 @@ Feature: Docker Image for Flyte
         Then the user is present
         And the user group is flyte
         And the user shell is /usr/sbin/nologin
+
+    # Scenario Outline: Corretto Configuration
+    #     Given the host with URL "local://" is ready
+    #     When the file is <file_name>
+    #     Then the file is present
+    #     And the file type is file
+    #     And the file owner is root
+    #     And the file group is root
+    #     Examples:
+    #         | file_name                                                                |
+    #         | /etc/apt/trusted.gpg                                                     |
+    #         | /etc/apt/sources.list.d/archive_uri-https_apt_corretto_aws-bookworm.list |
