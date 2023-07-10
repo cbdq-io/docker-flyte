@@ -1,0 +1,10 @@
+---
+version: '3'
+
+services:
+  sut:
+    build: ./tests/resources/sut
+    command: pytest -v /home/flyte/tests
+    container_name: sut
+    volumes:
+      - "./tests:/home/flyte/tests"
