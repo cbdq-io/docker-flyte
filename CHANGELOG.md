@@ -1,7 +1,14 @@
 # Changelog
 
 
-## 1.7.0-3.11-2
+## 1.8.0-3.11-1
+
+### Changes
+
+* Bump FlyteKit version from 1.7.0 to 1.8.0. [Ben Dalling]
+
+
+## 1.7.0-3.11-2 (2023-07-10)
 
 ### New
 
