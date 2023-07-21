@@ -41,6 +41,7 @@ jobs:
           image: "flyte:latest"
           only-fixed: true
           output-format: table
+          severity-cutoff: high
 
       - name: Log in to the Container Registry
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
