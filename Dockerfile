@@ -6,6 +6,8 @@ FROM python:${FLYTE_PYTHON_VERSION}
 # The version of Flyte Kit to install (e.g. 1.7.0).
 ARG FLYTE_KIT_VERSION
 
+LABEL org.opencontainers.image.description Flyte Kit and Spark.
+
 # The UID for the flyte user.  Defaults to 5000.
 ARG FLYTE_UID=5000
 
