@@ -9,7 +9,7 @@ ARG FLYTE_KIT_VERSION
 # The UID for the flyte user.  Defaults to 5000.
 ARG FLYTE_UID=5000
 
-# hadolint ignore=DL3008
+# hadolint ignore=DL3005,DL3008
 RUN apt-get clean \
   && apt-get update \
   && apt-get upgrade --yes \

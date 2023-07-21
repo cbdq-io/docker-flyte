@@ -11,7 +11,7 @@ Feature: Docker Image for Flyte
         When the pip package is flytekit
         Then the pip package is present
         And the pip package is latest
-        And the pip package version is 1.8.0
+        And the pip package version is 1.8.1
         And the pip check is OK
 
     Scenario: Flyte Non-Root User
