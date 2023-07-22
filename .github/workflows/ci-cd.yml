@@ -34,14 +34,14 @@ jobs:
         run: make test
 
       - name: Scan Image
-        uses: anchore/scan-action@v3
+        uses: aquasecurity/trivy-action@master
         with:
-          by-cve: true
-          fail-build: true
-          image: "flyte:latest"
-          only-fixed: true
-          output-format: table
-          severity-cutoff: high
+          image-ref: "flyte:latest"
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
 
       - name: Log in to the Container Registry
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
