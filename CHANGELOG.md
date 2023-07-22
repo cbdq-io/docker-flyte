@@ -1,7 +1,22 @@
 # Changelog
 
 
-## 1.8.0-3.11-1
+## 1.8.1-3.11-1
+
+### New
+
+* Add Spark examples. [Ben Dalling]
+
+* Add description to the Docker image. [Ben Dalling]
+
+* Add Spark to the image. [Ben Dalling]
+
+### Changes
+
+* Bump Flyte Kit version from 1.8.0 to 1.8.1. [Ben Dalling]
+
+
+## 1.8.0-3.11-1 (2023-07-18)
 
 ### Changes
 
