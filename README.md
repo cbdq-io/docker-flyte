@@ -37,25 +37,3 @@ spark-example-spark-1  | My printed value: 3.1425424 @ 2023-07-22 08:18:10.12883
 spark-example-spark-1  | 3.1425424
 spark-example-spark-1 exited with code 0
 ```
-
-## Spark on Kubernetes
-
-```shell
-helm repo add flyteorg https://flyteorg.github.io/flyte
-```
-
-Install the Spark Operator Helm chart:
-
-```shell
-helm repo add spark-operator \
-  https://googlecloudplatform.github.io/spark-on-k8s-operator
-```
-
-Install the Spark Operator:
-
-```shell
-helm install spark-operator spark-operator/spark-operator \
-  --namespace spark-operator \
-  --create-namespace \
-  --set image.tag=v1beta2-1.3.8-3.1.1
-```
