@@ -34,13 +34,10 @@ jobs:
         run: make test
 
       - name: Scan Image
-        uses: anchore/scan-action@v3
+        uses: aquasecurity/trivy-action@master
         with:
-          by-cve: true
-          fail-build: true
-          image: "flyte:latest"
-          only-fixed: true
-          output-format: table
+          image-ref: "flyte:latest"
+          trivy-config: trivy.yaml
 
       - name: Log in to the Container Registry
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
