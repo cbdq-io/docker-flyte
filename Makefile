@@ -22,9 +22,8 @@ build:
 	docker buildx build \
 	  --build-arg FLYTE_KIT_VERSION=${FLYTE_KIT_VERSION} \
 	  --build-arg FLYTE_PYTHON_VERSION=${FLYTE_PYTHON_VERSION} \
+	  --load \
 	  --tag flyte:latest \
-	  --tag ghcr.io/cbdq-io/flyte:latest \
-	  --tag ghcr.io/cbdq-io/flyte:${DOCKER_TAG} \
 	  .
 	docker images
 
