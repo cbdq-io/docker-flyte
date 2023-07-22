@@ -2,7 +2,7 @@
 version: "3"
 
 services:
-  example:
+  example-wine:
     build: .
     command: ["run", "example.py", "training_workflow", "--hyperparameters", '{"C": 0.1}']
     entrypoint: pyflyte
