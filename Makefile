@@ -13,9 +13,6 @@ GIT_TAG = ${FLYTE_KIT_VERSION}-${FLYTE_PYTHON_VERSION}${BUILD_INCREMENT}
 
 default: lint build test clean
 
-changelog:
-	gitchangelog > CHANGELOG.md
-
 build:
 	@echo "Docker tag is ${DOCKER_TAG}"
 	@echo "Git tag is ${GIT_TAG}"
@@ -27,13 +24,21 @@ build:
 	  .
 	docker images
 
+changelog:
+	gitchangelog > CHANGELOG.md
+
 clean:
 	docker compose -f docker-compose.test.yml down -t 0
 	docker compose -f examples/wine/docker-compose.yml down -t 0
+	docker compose -f examples/spark/docker-compose.yml down -t 0
 
 cleanall:
 	docker system prune --all --force
 	docker volume prune --all --force
+
+example:
+	docker compose -f examples/wine/docker-compose.yml up --build
+	docker compose -f examples/spark/docker-compose.yml up --build
 
 lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile

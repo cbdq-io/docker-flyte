@@ -29,7 +29,17 @@
 			]
 		}
 	},
-
+	"initializeCommand": {
+		"gpg.createDirectory": "mkdir -p .devcontainer/gpg",
+		"gpg.exportPublicKeys": "gpg -a --export --output .devcontainer/gpg/public-keys.asc --yes",
+		"gpg.exportPrivateKeys": "gpg -a --export-secret-keys --output .devcontainer/gpg/private-keys.asc --yes",
+		"gpg.exportTrustDB": "gpg -a --export-ownertrust --output .devcontainer/gpg/owner-trust-db.txt > .devcontainer/gpg/owner-trust-db.txt"
+	},
+	"postCreateCommand": {
+		"gpg.importPublicKeys": "gpg --import .devcontainer/gpg/public-keys.asc",
+		"gpg.importPrivateKeys": "gpg -v --import .devcontainer/gpg/private-keys.asc",
+		"gpg.importTrustDB": "gpg --import-ownertrust .devcontainer/gpg/owner-trust-db.txt"
+	}
 	// Configure tool-specific properties.
 	// "customizations": {},
 
