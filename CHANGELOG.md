@@ -1,7 +1,16 @@
 # Changelog
 
 
-## 1.8.1-3.11-1
+## 1.8.3-3.11-1
+
+### Changes
+
+* Specify that the image also has Spark. [Ben Dalling]
+
+* Bump FlyteKit from 1.8.1 to 1.8.3. [Ben Dalling]
+
+
+## 1.8.1-3.11-1 (2023-07-22)
 
 ### New
 
