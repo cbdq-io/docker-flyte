@@ -18,7 +18,7 @@ Review the changes in `CHANGELOG.md`, if all looks OK, finish the release
 with:
 
 ```shell
-release-commit
+make release-commit
 ```
 
 Push changes to Git.  If CI passes, raise a PR from the release branch to
