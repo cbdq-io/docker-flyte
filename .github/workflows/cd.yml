@@ -1,43 +1,23 @@
 ---
-name: CI/CD
+name: CD
 
 on:
-  push:
-
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '15 0 * * TUE'
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-  # Allows this workflow to be called from other workflows
-  workflow_call:
+  workflow_run:
+    workflows:
+      - CI
+      - Trivy
+    types:
+      - completed
 
 env:
   REGISTRY: ghcr.io
 
 jobs:
-  CI-CD:
+  CD:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3.1.0
-
-      - name: Lint
-        run: make lint
-
-      - name: Build
-        run: make build
-
-      - name: Test
-        run: make test
-
-      - name: Scan Image
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: "flyte:latest"
-          trivy-config: trivy.yaml
 
       - name: Log in to the Container Registry
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
