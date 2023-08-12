@@ -1,5 +1,8 @@
 ---
-name: CI/CD
+#############################################################################
+# GitHub workflow file for the project.
+#############################################################################
+name: Pipeline
 
 on:
   push:
@@ -18,7 +21,7 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
-  CI-CD:
+  CI:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,11 +36,30 @@ jobs:
       - name: Test
         run: make test
 
+  Trivy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3.1.0
+
+      - name: Build
+        run: make build
+
       - name: Scan Image
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: "flyte:latest"
           trivy-config: trivy.yaml
+
+  CD:
+    needs:
+      - CI
+      - Trivy
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3.1.0
 
       - name: Log in to the Container Registry
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'

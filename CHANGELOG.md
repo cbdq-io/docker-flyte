@@ -1,7 +1,18 @@
 # Changelog
 
 
-## 1.8.1-3.11-1
+## 1.9.0-3.11-1
+
+### Changes
+
+* Bump Flyte Kit version from 1.8.3 to 1.9.0. [Ben Dalling]
+
+* Specify that the image also has Spark. [Ben Dalling]
+
+* Bump FlyteKit from 1.8.1 to 1.8.3. [Ben Dalling]
+
+
+## 1.8.1-3.11-1 (2023-07-22)
 
 ### New
 

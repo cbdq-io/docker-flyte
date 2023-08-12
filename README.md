@@ -1,4 +1,4 @@
-# A Docker Image for Flyte
+# A Docker Image for Flyte With Spark
 
 A base image that contains
 [Flyte Kit](https://docs.flyte.org/en/latest/index.html).
