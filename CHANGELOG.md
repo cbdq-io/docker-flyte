@@ -1,7 +1,24 @@
 # Changelog
 
 
-## 1.9.0-3.11-1
+## 1.9.1-3.11-1
+
+### New
+
+* Add CVE-2022-46751 to the allowed list. [Ben Dalling]
+
+* Add labels to the Docker image. [Ben Dalling]
+
+### Changes
+
+* Bump Flyte Kit from 1.9.0 to 1.9.1. [Ben Dalling]
+
+### Fix
+
+* CVE-2021-22570 is no longer detected. [Ben Dalling]
+
+
+## 1.9.0-3.11-1 (2023-08-12)
 
 ### Changes
 
