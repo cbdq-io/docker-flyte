@@ -11,8 +11,8 @@ pluggy==1.2.0
 pystache==0.6.0
 pytest==7.4.0
 pytest-bdd==6.1.1
-pytest-testinfra==8.1.0
+pytest-testinfra==9.0.0
 six==1.16.0
-testinfra-bdd==2.2.6
+testinfra-bdd==3.0.0
 tomli==2.0.1
 typing-extensions==4.7.1
