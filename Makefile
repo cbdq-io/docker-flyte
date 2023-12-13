@@ -2,7 +2,7 @@
 
 BUILD_INCREMENT = -1
 
-FLYTE_KIT_VERSION = 1.9.1
+FLYTE_KIT_VERSION = 1.10.2
 
 FLYTE_PYTHON_VERSION = 3.11
 
@@ -75,3 +75,6 @@ tag:
 
 test:
 	docker compose -f docker-compose.test.yml run --build --rm sut
+
+trivy:
+	trivy image --severity HIGH,CRITICAL --ignore-unfixed flyte:latest
