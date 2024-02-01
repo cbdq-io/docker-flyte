@@ -1,7 +1,16 @@
 # Changelog
 
 
-## 1.10.2-3.11-1
+## 1.10.3-3.12-1
+
+### Changes
+
+* Bump Python from 3.11 to 3.12. [Ben Dalling]
+
+* Bump Flyte Kit version from 1.10.2 to 1.10.3. [Ben Dalling]
+
+
+## 1.10.2-3.11-1 (2023-12-13)
 
 ### Changes
 
