@@ -1,7 +1,29 @@
 # Changelog
 
 
-## 1.9.1-3.11-1
+## 1.10.3-3.12-1
+
+### Changes
+
+* Bump Python from 3.11 to 3.12. [Ben Dalling]
+
+* Bump Flyte Kit version from 1.10.2 to 1.10.3. [Ben Dalling]
+
+
+## 1.10.2-3.11-1 (2023-12-13)
+
+### Changes
+
+* Bump Flytekit version from 1.9.1 to 1.10.2. [Ben Dalling]
+
+### Fix
+
+* Remove CVE-2022-1471 and add CVE-2023-39410 to the allowed vulnerabilities. [Ben Dalling]
+
+* Add CVE-2023-43642 to the allowed vulnerabilities. [Ben Dalling]
+
+
+## 1.9.1-3.11-1 (2023-09-05)
 
 ### New
 
