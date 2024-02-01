@@ -4,14 +4,14 @@ Feature: Docker Image for Flyte
         When the TestInfra command is "python3 --version"
         Then the TestInfra command return code is 0
         And the TestInfra command "python3" exists in path
-        And the TestInfra command stdout contains "3.11."
+        And the TestInfra command stdout contains "3.12."
 
     Scenario Outline: Flyte Python Packages
         Given the TestInfra host with URL "local://" is ready
         When the TestInfra pip package is <pip_package>
         Then the TestInfra pip package is present
         And the TestInfra pip package is latest
-        And the TestInfra pip package version is 1.10.2
+        And the TestInfra pip package version is 1.10.3
         And the TestInfra pip check is OK
         Examples:
           | pip_package           |
