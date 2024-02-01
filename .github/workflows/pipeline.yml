@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v4
 
       - name: Lint
         run: make lint
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v4
 
       - name: Build
         run: make build
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v4
 
       - name: Log in to the Container Registry
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
