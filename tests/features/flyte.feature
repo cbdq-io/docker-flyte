@@ -11,7 +11,7 @@ Feature: Docker Image for Flyte
         When the TestInfra pip package is <pip_package>
         Then the TestInfra pip package is present
         And the TestInfra pip package is latest
-        And the TestInfra pip package version is 1.10.2
+        And the TestInfra pip package version is 1.10.3
         And the TestInfra pip check is OK
         Examples:
           | pip_package           |
