@@ -78,3 +78,6 @@ test:
 
 trivy:
 	trivy image --severity HIGH,CRITICAL --ignore-unfixed flyte:latest
+
+update-trivy-ignore:
+	trivy image --format json --ignore-unfixed --severity HIGH,CRITICAL flyte:latest | jq -r '.Results[1].Vulnerabilities[].VulnerabilityID' | sort -u | tee .trivyignore
