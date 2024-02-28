@@ -2,7 +2,7 @@
 
 BUILD_INCREMENT = -1
 
-FLYTE_KIT_VERSION = 1.10.3
+FLYTE_KIT_VERSION = 1.10.7
 
 FLYTE_PYTHON_VERSION = 3.12
 
@@ -78,3 +78,6 @@ test:
 
 trivy:
 	trivy image --severity HIGH,CRITICAL --ignore-unfixed flyte:latest
+
+update-trivy-ignore:
+	trivy image --format json --ignore-unfixed --severity HIGH,CRITICAL flyte:latest | jq -r '.Results[1].Vulnerabilities[].VulnerabilityID' | sort -u | tee .trivyignore
