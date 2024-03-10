@@ -3,6 +3,8 @@ ARG FLYTE_PYTHON_VERSION
 
 FROM python:${FLYTE_PYTHON_VERSION}
 
+ARG FLYTE_PYTHON_VERSION
+
 # The version of Flyte Kit to install (e.g. 1.7.0).
 ARG FLYTE_KIT_VERSION
 
