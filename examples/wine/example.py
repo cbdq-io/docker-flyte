@@ -1,9 +1,8 @@
+import flytekit.extras.sklearn
 import pandas as pd
+from flytekit import task, workflow
 from sklearn.datasets import load_wine
 from sklearn.linear_model import LogisticRegression
-
-import flytekit.extras.sklearn
-from flytekit import task, workflow
 
 
 @task
