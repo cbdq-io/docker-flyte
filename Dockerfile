@@ -39,6 +39,6 @@ RUN apt-get clean \
 USER flyte
 
 ENV JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto
-ENV SPARK_HOME=/usr/local/lib/python3.11/site-packages/pyspark
+ENV SPARK_HOME=/usr/local/lib/python${FLYTE_PYTHON_VERSION}/site-packages/pyspark
 
 WORKDIR /home/flyte
