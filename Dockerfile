@@ -33,6 +33,7 @@ RUN apt-get clean \
   && pip install --no-cache-dir \
     flytekit==${FLYTE_KIT_VERSION} \
     flytekitplugins-spark==${FLYTE_KIT_VERSION} \
+    'delta-spark>=3.1.0,<3.2.0' \
   && useradd --home-dir /home/flyte --create-home --uid ${FLYTE_UID} --shell /usr/sbin/nologin flyte
 
 USER flyte
