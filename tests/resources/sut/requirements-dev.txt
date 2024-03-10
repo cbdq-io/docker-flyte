@@ -12,7 +12,8 @@ pystache==0.6.0
 pytest==7.4.0
 pytest-bdd==6.1.1
 pytest-testinfra==9.0.0
+semver==3.0.2
 six==1.16.0
-testinfra-bdd==3.0.0
+testinfra-bdd==3.0.4
 tomli==2.0.1
 typing-extensions==4.7.1

@@ -3,6 +3,8 @@ ARG FLYTE_PYTHON_VERSION
 
 FROM python:${FLYTE_PYTHON_VERSION}
 
+ARG FLYTE_PYTHON_VERSION
+
 # The version of Flyte Kit to install (e.g. 1.7.0).
 ARG FLYTE_KIT_VERSION
 
@@ -33,11 +35,12 @@ RUN apt-get clean \
   && pip install --no-cache-dir \
     flytekit==${FLYTE_KIT_VERSION} \
     flytekitplugins-spark==${FLYTE_KIT_VERSION} \
+    'delta-spark>=3.1.0,<3.2.0' \
   && useradd --home-dir /home/flyte --create-home --uid ${FLYTE_UID} --shell /usr/sbin/nologin flyte
 
 USER flyte
 
 ENV JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto
-ENV SPARK_HOME=/usr/local/lib/python3.11/site-packages/pyspark
+ENV SPARK_HOME=/usr/local/lib/python${FLYTE_PYTHON_VERSION}/site-packages/pyspark
 
 WORKDIR /home/flyte

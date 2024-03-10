@@ -7,6 +7,7 @@ import flytekit
 from flytekit import Resources, task, workflow
 from flytekitplugins.spark import Spark
 
+
 @task(
     task_config=Spark(
         # this configuration is applied to the spark cluster
