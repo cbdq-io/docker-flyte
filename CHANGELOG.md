@@ -1,7 +1,18 @@
 # Changelog
 
 
-## 1.10.7-3.12-1
+## 1.10.7-3.12-2
+
+### New
+
+* Add Delta Lake to the image. [Ben Dalling]
+
+### Fix
+
+* Correct path for Python 3.12. [Ben Dalling]
+
+
+## 1.10.7-3.12-1 (2024-02-28)
 
 ### Changes
 
