@@ -3,6 +3,10 @@
 
 ## 1.12.0-3.12-1
 
+### New
+
+* Add hook for _PIP_ADDITIONAL_REQUIREMENTS on entry to the container. [Ben Dalling]
+
 ### Changes
 
 * Bump Flyte Kit version from 1.11.0 to 1.12.0. [Ben Dalling]
