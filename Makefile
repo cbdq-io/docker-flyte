@@ -68,10 +68,7 @@ release-commit: changelog
 	git commit -m 'chg: doc: Changes for release $(GIT_TAG). !minor'
 
 tag:
-	git tag ${GIT_TAG}
-	git push --tags
-	git checkout -b feature/post-${GIT_TAG}-release
-	git push --set-upstream origin feature/post-${GIT_TAG}-release
+	@echo ${GIT_TAG}
 
 test:
 	docker compose -f docker-compose.test.yml run --build --rm sut
