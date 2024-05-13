@@ -23,6 +23,4 @@ make release-commit
 
 Push changes to Git.  If CI passes, raise a PR from the release branch to
 `main`.  When that branch is merged, the Continual Deployment will create
-the Git tag and publish the Docker image.  Subsequently a branch will
-be created called `feature/post-${GIT_TAG}-release`.  This branch should
-be merged back onto `develop` to complete the release process.
+the Git tag and publish the Docker image.
