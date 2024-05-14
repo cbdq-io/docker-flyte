@@ -11,7 +11,7 @@ Feature: Docker Image for Flyte
         When the TestInfra pip package is <pip_package>
         Then the TestInfra pip package is present
         And the TestInfra pip package is latest
-        And the TestInfra pip package version is 1.11.0
+        And the TestInfra pip package version is 1.12.0
         And the TestInfra pip check is OK
         Examples:
           | pip_package           |
@@ -53,3 +53,11 @@ Feature: Docker Image for Flyte
       And the TestInfra command stdout is empty
       And the TestInfra command return code is 0
       And the TestInfra package is installed
+
+    Scenario: Entrypoint
+      Given the TestInfra host with URL "local://" is ready
+      When the TestInfra file is /usr/local/bin/entrypoint.sh
+      Then the TestInfra file type is file
+      And the TestInfra file owner is flyte
+      And the TestInfra file group is flyte
+      And the TestInfra file mode is 0o555

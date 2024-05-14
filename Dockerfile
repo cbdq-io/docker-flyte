@@ -38,9 +38,13 @@ RUN apt-get clean \
     'delta-spark>=3.1.0,<3.2.0' \
   && useradd --home-dir /home/flyte --create-home --uid ${FLYTE_UID} --shell /usr/sbin/nologin flyte
 
+COPY --chown=flyte:flyte --chmod=0555 entrypoint.sh /usr/local/bin/entrypoint.sh
 USER flyte
 
+ENV HOME=/home/flyte
 ENV JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto
 ENV SPARK_HOME=/usr/local/lib/python${FLYTE_PYTHON_VERSION}/site-packages/pyspark
+ENV PATH=${HOME}/.local/bin:${JAVA_HOME}/bin:${SPARK_HOME}/bin:/usr/local/bin:/usr/bin:/bin
 
 WORKDIR /home/flyte
+ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]

@@ -3,9 +3,10 @@ version: "3"
 
 services:
   example-wine:
-    build: .
-    command: ["run", "example.py", "training_workflow", "--hyperparameters", '{"C": 0.1}']
-    entrypoint: pyflyte
+    command: ["pyflyte", "run", "example.py", "training_workflow", "--hyperparameters", "{\"C\":0.1}"]
+    environment:
+      _PIP_ADDITIONAL_REQUIREMENTS: scikit-learn
+    image: flyte:latest
     volumes:
       - ".:/example"
     working_dir: /example
