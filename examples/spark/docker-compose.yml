@@ -3,9 +3,8 @@ version: "3"
 
 services:
   example-spark:
-    command: ["run", "fspark.py", "my_spark"]
-    entrypoint: pyflyte
-    image: ghcr.io/cbdq-io/flyte:latest
+    command: ["pyflyte", "run", "fspark.py", "my_spark"]
+    image: flyte:latest
     volumes:
       - ".:/example"
     working_dir: /example

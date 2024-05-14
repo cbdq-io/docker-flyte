@@ -11,7 +11,7 @@ Using the example provided by Flyte for the wine dataset of scikit-learn,
 run the following example:
 
 ```shell
-docker compose -f examples/wine/docker-compose.yml up --build
+docker compose -f examples/wine/docker-compose.yml up
 ```
 
 The output should have something similar to this:
@@ -25,7 +25,7 @@ Again, using an example provided by Flyte
 (see <https://docs.flyte.org/projects/cookbook/en/latest/auto_examples/k8s_spark_plugin/pyspark_pi.html>).
 
 ```shell
-docker compose -f examples/spark/docker-compose.yml up --build
+docker compose -f examples/spark/docker-compose.yml up
 ```
 
 The output should be something similar to this:
