@@ -1,6 +1,13 @@
 # Changelog
 
 
+## 1.12.0-3.12-1
+
+### New
+
+* Add CVE-2024-36114 to the allowed vulnerabilities list. [Ben Dalling]
+
+
 ## 1.12.0-3.12-1 (2024-05-14)
 
 ### New
