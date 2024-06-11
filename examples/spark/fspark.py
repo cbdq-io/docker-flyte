@@ -16,11 +16,11 @@ from flytekitplugins.spark import Spark
             "spark.executor.memory": "1000M",
             "spark.executor.cores": "1",
             "spark.executor.instances": "2",
-            "spark.driver.cores": "1",
+            "spark.driver.cores": "1"
         }
     ),
     limits=Resources(mem="2000M"),
-    cache_version="1",
+    cache_version="1"
 )
 
 def hello_spark(partitions: int) -> float:
