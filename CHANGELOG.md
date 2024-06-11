@@ -1,11 +1,15 @@
 # Changelog
 
 
-## 1.12.0-3.12-1
+## 1.12.2-3.12-1
 
 ### New
 
 * Add CVE-2024-36114 to the allowed vulnerabilities list. [Ben Dalling]
+
+### Changes
+
+* Blump Flyte Kit version from 1.12.0 to 1.12.2. [Ben Dalling]
 
 
 ## 1.12.0-3.12-1 (2024-05-14)
