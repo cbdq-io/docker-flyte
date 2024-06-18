@@ -1,7 +1,14 @@
 # Changelog
 
 
-## 1.12.2-3.12-1
+## 1.12.3-3.12-1
+
+### Changes
+
+* Bump Flyte Kit version from 1.12.2 to 1.12.3. [Ben Dalling]
+
+
+## 1.12.2-3.12-1 (2024-06-11)
 
 ### New
 
