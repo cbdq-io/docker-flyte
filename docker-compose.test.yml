@@ -6,5 +6,7 @@ services:
     build: ./tests/resources/sut
     command: pytest -v /home/flyte/tests
     container_name: sut
+    environment:
+      - FLYTE_KIT_VERSION=${FLYTE_KIT_VERSION}
     volumes:
       - "./tests:/home/flyte/tests"
