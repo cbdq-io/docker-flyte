@@ -1,6 +1,13 @@
 # Changelog
 
 
+## 1.13.0-3.12-1
+
+### Changes
+
+* Blump the Flyte Kit version from 1.12.3 to 1.13.0. [Ben Dalling]
+
+
 ## 1.12.3-3.12-1 (2024-06-18)
 
 ### Changes
