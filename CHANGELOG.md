@@ -3,6 +3,13 @@
 
 ## 1.13.0-3.12-1
 
+### Fix
+
+* Add CVE-2024-25638 to the allowed list of vulnerabilities. [Ben Dalling]
+
+
+## 1.13.0-3.12-1 (2024-07-09)
+
 ### Changes
 
 * Blump the Flyte Kit version from 1.12.3 to 1.13.0. [Ben Dalling]
