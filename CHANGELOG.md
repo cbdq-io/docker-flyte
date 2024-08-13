@@ -1,6 +1,17 @@
 # Changelog
 
 
+## 1.13.3-3.12-1
+
+### Changes
+
+* Bump Flyte Kit version from 1.13.2 to 1.13.3. [Ben Dalling]
+
+### Fix
+
+* CVE-2023-43642 & CVE-2024-36114 no longer detected. [Ben Dalling]
+
+
 ## 1.13.2-3.12-1 (2024-08-07)
 
 ### Changes
