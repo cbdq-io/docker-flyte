@@ -20,7 +20,7 @@ jobs:
 
       - name: Get Latest Tag
         id: get_tag
-        run: echo "LATEST_TAG=$(make tag)" >> $GITHUB_ENV
+        run: echo "LATEST_TAG=$(make docker-tag)" >> $GITHUB_ENV
 
       - name: Scan Image
         uses: aquasecurity/trivy-action@master
