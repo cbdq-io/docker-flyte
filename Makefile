@@ -35,6 +35,9 @@ cleanall:
 	docker system prune --all --force
 	docker volume prune --all --force
 
+docker-tag:
+	@echo ${DOCKER_TAG}
+
 lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
 
