@@ -1,7 +1,7 @@
 """Examples of step definitions for Testinfra BDD feature tests."""
 import os
 import testinfra_bdd
-from pytest_bdd import then, scenarios
+from pytest_bdd import then, scenarios, parsers, when
 
 scenarios('../features/flyte.feature')
 
@@ -10,6 +10,11 @@ scenarios('../features/flyte.feature')
 # your test suite.
 pytest_plugins = testinfra_bdd.PYTEST_MODULES
 
+
+@when(parsers.parse('the Vulnerability is {vulnerability}'))
+def _(vulnerability: str):
+    """the Vulnerability is <Vulnerability>."""
+    pass
 
 @then('the TestInfra pip package matches the expected flytekit version')
 def _(testinfra_bdd_host):
