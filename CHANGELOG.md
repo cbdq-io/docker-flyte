@@ -10,6 +10,17 @@
 
 ## 1.13.4-3.12-1 (2024-08-16)
 
+### New
+
+* Add a description to the image. [Ben Dalling]
+
+### Fix
+
+* CVE-2024-5171. [Ben Dalling]
+
+
+## 1.13.4-3.12-1 (2024-08-16)
+
 ### Changes
 
 * Bump Flyte Kit version from 1.13.3 to 1.13.4. [Ben Dalling]

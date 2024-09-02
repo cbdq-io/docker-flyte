@@ -18,6 +18,7 @@ on:
   workflow_call:
 
 env:
+  BUILDX_NO_DEFAULT_ATTESTATIONS: 1
   REGISTRY: ghcr.io
 
 jobs:
