@@ -1,7 +1,14 @@
 # Changelog
 
 
-## 1.13.5-3.12-1
+## 1.13.5-3.12-2
+
+### Fix
+
+* Rebuild image to fix CVE-2023-25652, CVE-2023-29007, CVE-2024-32002, CVE-2024-32004 and CVE-2024-32465. [Ben Dalling]
+
+
+## 1.13.5-3.12-1 (2024-09-02)
 
 ### Changes
 
