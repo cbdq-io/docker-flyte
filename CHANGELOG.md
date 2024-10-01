@@ -13,6 +13,8 @@
 
 ### Fix
 
+* Add CVE-2024-7254 to .trivyignore. [Ben Dalling]
+
 * CVE-2024-26308 no longer found in the image. [Ben Dalling]
 
 * CVE-2024-5171. [Ben Dalling]
