@@ -1,16 +1,7 @@
 # Changelog
 
 
-## 1.13.5-3.12-2 (2024-09-17)
-
-### Fix
-
-* CVE-2024-26308 not longer found in image. [Ben Dalling]
-
-* Rebuild image to fix CVE-2023-25652, CVE-2023-29007, CVE-2024-32002, CVE-2024-32004 and CVE-2024-32465. [Ben Dalling]
-
-
-## 1.13.5-3.12-1 (2024-09-02)
+## 1.13.5-3.12-2
 
 ### New
 
@@ -22,9 +13,20 @@
 
 ### Fix
 
+* Add CVE-2024-7254 to .trivyignore. [Ben Dalling]
+
 * CVE-2024-26308 no longer found in the image. [Ben Dalling]
 
 * CVE-2024-5171. [Ben Dalling]
+
+
+## 1.13.5-3.12-2 (2024-09-17)
+
+### Fix
+
+* CVE-2024-26308 not longer found in image. [Ben Dalling]
+
+* Rebuild image to fix CVE-2023-25652, CVE-2023-29007, CVE-2024-32002, CVE-2024-32004 and CVE-2024-32465. [Ben Dalling]
 
 
 ## 1.13.5-3.12-1 (2024-09-02)
