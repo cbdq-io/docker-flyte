@@ -3,6 +3,10 @@
 
 ## 1.13.7-3.12-1
 
+### New
+
+* Add CVE-2024-47554 to the allowed vulnerabilities. [Ben Dalling]
+
 ### Changes
 
 * Update Flyte Kit version from 1.13.5 to 1.13.7. [Ben Dalling]
