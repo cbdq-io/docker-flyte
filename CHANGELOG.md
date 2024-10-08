@@ -1,6 +1,25 @@
 # Changelog
 
 
+## 1.13.8-3.12-1
+
+### New
+
+* Add a description to the image. [Ben Dalling]
+
+### Changes
+
+* Bump Flyte Kit version from 1.13.4 to 1.13.5. [Ben Dalling]
+
+### Fix
+
+* Add CVE-2024-7254 to .trivyignore. [Ben Dalling]
+
+* CVE-2024-26308 no longer found in the image. [Ben Dalling]
+
+* CVE-2024-5171. [Ben Dalling]
+
+
 ## 1.13.8-3.12-1 (2024-10-08)
 
 ### New
