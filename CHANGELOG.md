@@ -1,7 +1,14 @@
 # Changelog
 
 
-## 1.13.5-3.12-3
+## 1.13.7-3.12-1
+
+### Changes
+
+* Update Flyte Kit version from 1.13.5 to 1.13.7. [Ben Dalling]
+
+
+## 1.13.5-3.12-3 (2024-10-01)
 
 ### Fix
 
