@@ -1,8 +1,8 @@
 .EXPORT_ALL_VARIABLES:
 
-BUILD_INCREMENT = -3
+BUILD_INCREMENT = -1
 
-FLYTE_KIT_VERSION = 1.13.5
+FLYTE_KIT_VERSION = 1.13.8
 
 FLYTE_PYTHON_VERSION = 3.12
 
@@ -37,6 +37,12 @@ cleanall:
 
 docker-tag:
 	@echo ${DOCKER_TAG}
+
+hotfix-branch:
+	git checkout main
+	git fetch -p origin
+	git pull
+	git checkout -b hotfix/$(GIT_TAG)
 
 lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile

@@ -1,14 +1,7 @@
 # Changelog
 
 
-## 1.13.5-3.12-3 (2024-10-01)
-
-### Fix
-
-* Add CVE-2024-7254 to .trivyignore. [Ben Dalling]
-
-
-## 1.13.5-3.12-2 (2024-09-17)
+## 1.13.8-3.12-1
 
 ### New
 
@@ -25,6 +18,26 @@
 * CVE-2024-26308 no longer found in the image. [Ben Dalling]
 
 * CVE-2024-5171. [Ben Dalling]
+
+
+## 1.13.8-3.12-1 (2024-10-08)
+
+### New
+
+* Add CVE-2024-47554 to the allowed vulnerabilities. [Ben Dalling]
+
+### Changes
+
+* Update Flyte Kit version from 1.13.7 to 1.13.8. [Ben Dalling]
+
+* Update Flyte Kit version from 1.13.5 to 1.13.7. [Ben Dalling]
+
+
+## 1.13.5-3.12-3 (2024-10-01)
+
+### Fix
+
+* Add CVE-2024-7254 to .trivyignore. [Ben Dalling]
 
 
 ## 1.13.5-3.12-2 (2024-09-17)
