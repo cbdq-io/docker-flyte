@@ -18,6 +18,16 @@ Feature: Docker Image for Flyte
           | flytekit              |
           | flytekitplugins-spark |
 
+    Scenario Outline: Fixed System Vulnerabilities
+      Given the TestInfra host with URL "local://" is ready
+      When the Vulnerability is <Vulnerability>
+      And the TestInfra package is <Library>
+      Then the TestInfra package version will be greater than or equal to <FixedVersion>
+
+      Examples:
+        | Vulnerability | Library | FixedVersion    |
+        | CVE-2024-5171 | libaom3 | 3.6.0-1+deb12u1 |
+
     Scenario: Flyte Non-Root User
         Given the TestInfra host with URL "local://" is ready
         When the TestInfra user is flyte

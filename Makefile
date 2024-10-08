@@ -35,6 +35,9 @@ cleanall:
 	docker system prune --all --force
 	docker volume prune --all --force
 
+docker-tag:
+	@echo ${DOCKER_TAG}
+
 hotfix-branch:
 	git checkout main
 	git fetch -p origin
@@ -50,6 +53,7 @@ multi-build-latest:
           --build-arg FLYTE_KIT_VERSION=${FLYTE_KIT_VERSION} \
           --build-arg FLYTE_PYTHON_VERSION=${FLYTE_PYTHON_VERSION} \
           --tag ghcr.io/cbdq-io/flyte:latest \
+          --annotation 'org.opencontainers.image.description=A Docker Image for Flyte With Spark.' \
 	  .
 
 multi-build-tagged:
@@ -61,6 +65,7 @@ multi-build-tagged:
           --build-arg FLYTE_PYTHON_VERSION=${FLYTE_PYTHON_VERSION} \
           --tag ghcr.io/cbdq-io/flyte:latest \
           --tag ghcr.io/cbdq-io/flyte:${DOCKER_TAG} \
+          --annotation 'org.opencontainers.image.description=A Docker Image for Flyte With Spark.' \
 	  .
 
 release-branch:
