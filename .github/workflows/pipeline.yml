@@ -103,7 +103,7 @@ jobs:
 
       - name: Push Latest Image ${{ matrix.platform }}
         if: github.ref == 'refs/heads/develop'
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           push: true
           platforms: ${{ matrix.platform }}
@@ -119,7 +119,7 @@ jobs:
 
       - name: Push Tagged and Latest Image ${{ matrix.platform }}
         if: github.ref == 'refs/heads/main'
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           push: true
           platforms: ${{ matrix.platform }}
