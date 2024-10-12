@@ -79,7 +79,7 @@ jobs:
 
       - name: Set up Docker Buildx
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
 
       - name: Get the Docker tag
         id: get-tag
