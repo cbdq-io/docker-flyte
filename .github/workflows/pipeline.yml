@@ -101,14 +101,32 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push Docker Image ${{ matrix.platform }}
+      - name: Push Latest Image ${{ matrix.platform }}
+        if: github.ref == 'refs/heads/develop'
         uses: docker/build-push-action@v6
         with:
           push: true
           platforms: ${{ matrix.platform }}
           tags: |
             ghcr.io/cbdq-io/flyte:latest
-            ${{ github.ref == 'refs/heads/main' && 'ghcr.io/cbdq-io/flyte:${{ env.TAG }}' || '' }}
+          annotations: |
+            org.opencontainers.image.created=${{ steps.buildtime.outputs.time }}
+            org.opencontainers.image.version=${{ env.TAG }}
+            org.opencontainers.image.source=https://github.com/cbdq-io/docker-flyte
+            org.opencontainers.image.description=A Docker Image for Flyte With Spark.
+            org.opencontainers.image.licenses=BSD-3
+          build-args: |
+            FLYTE_KIT_VERSION=${{ env.FLYTE_KIT_VERSION }}
+            FLYTE_PYTHON_VERSION=${{ env.FLYTE_PYTHON_VERSION }}
+
+      - name: Push Tagged and Latest Image ${{ matrix.platform }}
+        if: github.ref == 'refs/heads/main'
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          platforms: ${{ matrix.platform }}
+          tags: |
+            ghcr.io/cbdq-io/flyte:${{ env.TAG }}
           annotations: |
             org.opencontainers.image.created=${{ steps.buildtime.outputs.time }}
             org.opencontainers.image.version=${{ env.TAG }}
