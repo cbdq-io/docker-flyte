@@ -114,6 +114,7 @@ jobs:
             FLYTE_PYTHON_VERSION=${{ env.FLYTE_PYTHON_VERSION }}
 
       - name: Create and Annotate Multi-Arch Manifest
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
         run: |
           docker manifest create ghcr.io/cbdq-io/flyte:${{ env.TAG }} \
             --amend ghcr.io/cbdq-io/flyte:${{ env.TAG }}-amd64 \
@@ -124,5 +125,6 @@ jobs:
             --annotation org.opencontainers.image.licenses="BSD-3-Clause"
 
       - name: Push Multi-Arch Manifest
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
         run: |
           docker manifest push ghcr.io/cbdq-io/flyte:${{ env.TAG }}
