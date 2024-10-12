@@ -101,11 +101,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Images for Multiple Architectures
+      - name: Build and Push Images for Multiple Architectures
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/bugfix/peter-evans'
         uses: docker/build-push-action@v6
         with:
-          push: false  # Don't push the images yet, only build them
+          push: true
           platforms: linux/amd64,linux/arm64
           tags: |
             ghcr.io/cbdq-io/flyte:${{ env.TAG }}
