@@ -9,7 +9,7 @@ on:
 
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '15 0 * * TUE'
+    - cron: '15 0 * * TUE'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -101,14 +101,28 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and Push Image
+      - name: Build Images for Multiple Architectures
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
         uses: docker/build-push-action@v6
         with:
-          push: true
+          push: false  # Don't push the images yet, only build them
           platforms: linux/amd64,linux/arm64
           tags: |
             ghcr.io/cbdq-io/flyte:${{ env.TAG }}
           build-args: |
             FLYTE_KIT_VERSION=${{ env.FLYTE_KIT_VERSION }}
             FLYTE_PYTHON_VERSION=${{ env.FLYTE_PYTHON_VERSION }}
+
+      - name: Create and Annotate Multi-Arch Manifest
+        run: |
+          docker manifest create ghcr.io/cbdq-io/flyte:${{ env.TAG }} \
+            --amend ghcr.io/cbdq-io/flyte:${{ env.TAG }}-amd64 \
+            --amend ghcr.io/cbdq-io/flyte:${{ env.TAG }}-arm64
+          docker manifest annotate ghcr.io/cbdq-io/flyte:${{ env.TAG }} \
+            --annotation org.opencontainers.image.source="https://github.com/cbdq-io/docker-flyte" \
+            --annotation org.opencontainers.image.description="A Docker Image for Flyte With Spark." \
+            --annotation org.opencontainers.image.licenses="BSD-3-Clause"
+
+      - name: Push Multi-Arch Manifest
+        run: |
+          docker manifest push ghcr.io/cbdq-io/flyte:${{ env.TAG }}
