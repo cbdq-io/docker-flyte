@@ -38,6 +38,9 @@ cleanall:
 docker-tag:
 	@echo ${DOCKER_TAG}
 
+flyte-kit-version:
+	@echo ${FLYTE_KIT_VERSION}
+
 hotfix-branch:
 	git checkout main
 	git fetch -p origin
@@ -67,6 +70,9 @@ multi-build-tagged:
           --tag ghcr.io/cbdq-io/flyte:${DOCKER_TAG} \
           --annotation 'org.opencontainers.image.description=A Docker Image for Flyte With Spark.' \
 	  .
+
+python-version:
+	@echo ${FLYTE_PYTHON_VERSION}
 
 release-branch:
 	git checkout develop

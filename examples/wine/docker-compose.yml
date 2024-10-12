@@ -1,6 +1,4 @@
 ---
-version: "3"
-
 services:
   example-wine:
     command: ["pyflyte", "run", "example.py", "training_workflow", "--hyperparameters", "{\"C\":0.1}"]
