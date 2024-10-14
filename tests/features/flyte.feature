@@ -36,6 +36,7 @@ Feature: Docker Image for Flyte
         | flyte-cli       |
         | pyflyte         |
         | pyflyte-execute |
+        | pyspark         |
 
     Scenario: Pre-Flyte Check
       Given the TestInfra host with URL "local://" is ready
