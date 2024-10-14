@@ -112,6 +112,7 @@ jobs:
           tags: |
             ghcr.io/cbdq-io/flyte:${{ env.TAG }}
           build-args: |
+            DOCKER_IMAGE=ghcr.io/cbdq-io/flyte:${{ env.TAG }}
             FLYTE_KIT_VERSION=${{ env.FLYTE_KIT_VERSION }}
             FLYTE_PYTHON_VERSION=${{ env.FLYTE_PYTHON_VERSION }}
           outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=A Docker Image for Flyte Kit and Spark.

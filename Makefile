@@ -20,6 +20,7 @@ build:
 	@echo "Docker tag is ${DOCKER_TAG}"
 	@echo "Git tag is ${GIT_TAG}"
 	docker buildx build \
+          --build-arg DOCKER_IMAGE="flyte:latest" \
 	  --build-arg FLYTE_KIT_VERSION=${FLYTE_KIT_VERSION} \
 	  --build-arg FLYTE_PYTHON_VERSION=${FLYTE_PYTHON_VERSION} \
 	  --load \
@@ -49,27 +50,6 @@ hotfix-branch:
 
 lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
-
-multi-build-latest:
-	docker buildx create --use
-	docker buildx build --push --platform=linux/amd64,linux/arm64 \
-          --build-arg FLYTE_KIT_VERSION=${FLYTE_KIT_VERSION} \
-          --build-arg FLYTE_PYTHON_VERSION=${FLYTE_PYTHON_VERSION} \
-          --tag ghcr.io/cbdq-io/flyte:latest \
-          --annotation 'org.opencontainers.image.description=A Docker Image for Flyte With Spark.' \
-	  .
-
-multi-build-tagged:
-	@echo "Docker tag is ${DOCKER_TAG}"
-	@echo "Git tag is ${GIT_TAG}"
-	docker buildx create --use
-	docker buildx build --push --platform=linux/amd64,linux/arm64 \
-          --build-arg FLYTE_KIT_VERSION=${FLYTE_KIT_VERSION} \
-          --build-arg FLYTE_PYTHON_VERSION=${FLYTE_PYTHON_VERSION} \
-          --tag ghcr.io/cbdq-io/flyte:latest \
-          --tag ghcr.io/cbdq-io/flyte:${DOCKER_TAG} \
-          --annotation 'org.opencontainers.image.description=A Docker Image for Flyte With Spark.' \
-	  .
 
 python-version:
 	@echo ${FLYTE_PYTHON_VERSION}

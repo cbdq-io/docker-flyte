@@ -3,6 +3,7 @@ ARG FLYTE_PYTHON_VERSION
 
 FROM python:${FLYTE_PYTHON_VERSION}
 
+ARG DOCKER_IMAGE
 ARG FLYTE_PYTHON_VERSION
 
 # The version of Flyte Kit to install (e.g. 1.7.0).
@@ -15,7 +16,7 @@ LABEL org.opencontainers.image.licenses=BSD-3
 # The UID for the flyte user.  Defaults to 5000.
 ARG FLYTE_UID=5000
 
-# hadolint ignore=DL3005,DL3008
+# hadolint ignore=DL3005,DL3008,DL3013
 RUN apt-get clean \
   && apt-get update \
   && apt-get upgrade --yes \
@@ -36,11 +37,14 @@ RUN apt-get clean \
     flytekit==${FLYTE_KIT_VERSION} \
     flytekitplugins-spark==${FLYTE_KIT_VERSION} \
     'delta-spark>=3.1.0,<3.2.0' \
+    kubernetes \
+    setuptools \
   && useradd --home-dir /home/flyte --create-home --uid ${FLYTE_UID} --shell /usr/sbin/nologin flyte
 
 COPY --chown=flyte:flyte --chmod=0555 entrypoint.sh /usr/local/bin/entrypoint.sh
 USER flyte
 
+ENV FLYTE_INTERNAL_IMAGE="$DOCKER_IMAGE"
 ENV HOME=/home/flyte
 ENV JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto
 ENV SPARK_HOME=/usr/local/lib/python${FLYTE_PYTHON_VERSION}/site-packages/pyspark

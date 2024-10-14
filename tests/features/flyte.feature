@@ -18,6 +18,30 @@ Feature: Docker Image for Flyte
           | flytekit              |
           | flytekitplugins-spark |
 
+    Scenario Outline: Other Python Packages
+      Given the TestInfra host with URL "local://" is ready
+      When the TestInfra pip package is <pip_package>
+      Then the TestInfra pip package is present
+      Examples:
+        | pip_package |
+        | kubernetes  |
+        | setuptools  |
+
+    Scenario Outline: Expected Executables
+      Given the TestInfra host with URL "local://" is ready
+      When the TestInfra command is <executable>
+      Then the TestInfra command "<executable>" exists in path
+      Examples:
+        | executable      |
+        | flyte-cli       |
+        | pyflyte         |
+        | pyflyte-execute |
+
+    Scenario: Pre-Flyte Check
+      Given the TestInfra host with URL "local://" is ready
+      When the TestInfra command is "pyflyte --help"
+      Then the TestInfra command return code is 0
+
     Scenario Outline: Fixed System Vulnerabilities
       Given the TestInfra host with URL "local://" is ready
       When the Vulnerability is <Vulnerability>
