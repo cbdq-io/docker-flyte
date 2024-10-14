@@ -20,3 +20,5 @@ CVE-2024-47554
 CVE-2024-47561
 CVE-2024-7254
 GHSA-xpw8-rcwv-8f8p
+
+/home/flyte/.local/lib/python3.12/site-packages/google/auth/crypt/__pycache__/_python_rsa.cpython-312.pyc AsymmetricPrivateKey
