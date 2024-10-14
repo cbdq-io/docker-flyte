@@ -13,7 +13,7 @@ severity:
 scanners:
   - vuln
 
-vulnerability:
+pkg:
   # Same as '--vuln-type'
   # Default is 'os,library'
   type:
