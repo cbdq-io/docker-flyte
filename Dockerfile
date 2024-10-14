@@ -21,12 +21,10 @@ RUN apt-get clean \
   && apt-get update \
   && apt-get upgrade --yes \
     linux-libc-dev \
-  && apt-get install --no-install-recommends --yes \
-    software-properties-common \
   && wget --quiet -O /tmp/corretto.key https://apt.corretto.aws/corretto.key \
-  && apt-key add /tmp/corretto.key \
-  && add-apt-repository --yes 'deb https://apt.corretto.aws stable main' \
-  && add-apt-repository --yes 'deb https://apt.corretto.aws stable main' \
+  && gpg --dearmor -o /usr/share/keyrings/corretto-keyring.gpg /tmp/corretto.key \
+  && echo 'deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main' > /etc/apt/sources.list.d/corretto.list \
+  && apt-get update \
   && apt-get install --no-install-recommends --yes java-11-amazon-corretto-jdk \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/corretto.key \
@@ -44,7 +42,7 @@ ENV PATH=${HOME}/.local/bin:${JAVA_HOME}/bin:${SPARK_HOME}/bin:/usr/local/bin:/u
 WORKDIR /home/flyte
 
 # hadolint ignore=DL3013
-RUN pip install --no-cache-dir \
+RUN pip install --no-cache-dir --quiet --user \
     flytekit==${FLYTE_KIT_VERSION} \
     flytekitplugins-spark==${FLYTE_KIT_VERSION} \
     'delta-spark>=3.1.0,<3.2.0' \
