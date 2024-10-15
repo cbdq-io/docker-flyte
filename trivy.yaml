@@ -6,6 +6,10 @@ format: table
 
 ignore-unfixed: true
 
+scan:
+  skip-files:
+    - /home/flyte/.local/**/*.pyc
+
 severity:
   - CRITICAL
   - HIGH
@@ -14,8 +18,6 @@ scanners:
   - vuln
 
 pkg:
-  # Same as '--vuln-type'
-  # Default is 'os,library'
   type:
     - os
     - library
