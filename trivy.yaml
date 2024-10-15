@@ -6,6 +6,11 @@ format: table
 
 ignore-unfixed: true
 
+pkg:
+  type:
+    - os
+    - library
+
 scan:
   skip-files:
     - /home/flyte/.local/**/*.pyc
@@ -17,9 +22,5 @@ severity:
 scanners:
   - vuln
 
-vulnerabilities:
-  type:
-    - os
-    - library
-
+vulnerability:
   ignore-unfixed: true
