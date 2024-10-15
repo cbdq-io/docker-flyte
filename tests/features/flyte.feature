@@ -36,6 +36,7 @@ Feature: Docker Image for Flyte
         | flyte-cli       |
         | pyflyte         |
         | pyflyte-execute |
+        | pyspark         |
 
     Scenario: Pre-Flyte Check
       Given the TestInfra host with URL "local://" is ready
@@ -67,9 +68,9 @@ Feature: Docker Image for Flyte
         And the TestInfra file owner is root
         And the TestInfra file group is root
         Examples:
-          | file_name                                                                |
-          | /etc/apt/trusted.gpg                                                     |
-          | /etc/apt/sources.list.d/archive_uri-https_apt_corretto_aws-bookworm.list |
+          | file_name                                |
+          | /usr/share/keyrings/corretto-keyring.gpg |
+          | /etc/apt/sources.list.d/corretto.list    |
 
     Scenario Outline: Check Commands Installed in the Path
       Given the TestInfra host with URL "local://" is ready within 10 seconds
