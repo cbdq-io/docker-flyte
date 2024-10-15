@@ -13,6 +13,8 @@
 
 ### Fix
 
+* Set the FLYTE_INTERNAL_IMAGE environment variable in the container.  Also ensure that the Flyte Kit commands execute correctly. [Ben Dalling]
+
 * Add CVE-2024-7254 to .trivyignore. [Ben Dalling]
 
 * CVE-2024-26308 no longer found in the image. [Ben Dalling]
