@@ -1,13 +1,15 @@
 # Changelog
 
 
-## 1.13.8-3.12-1
+## 1.13.8-3.12-2
 
 ### New
 
 * Add a description to the image. [Ben Dalling]
 
 ### Changes
+
+* Release to fix broken executables. [Ben Dalling]
 
 * Bump Flyte Kit version from 1.13.4 to 1.13.5. [Ben Dalling]
 
