@@ -1,7 +1,58 @@
 # Changelog
 
 
-## 1.13.8-3.12-1
+## 1.13.8-3.12-2
+
+### New
+
+* Add a description to the image. [Ben Dalling]
+
+### Changes
+
+* Release to fix broken executables. [Ben Dalling]
+
+* Bump Flyte Kit version from 1.13.4 to 1.13.5. [Ben Dalling]
+
+### Fix
+
+* Set the FLYTE_INTERNAL_IMAGE environment variable in the container.  Also ensure that the Flyte Kit commands execute correctly. [Ben Dalling]
+
+* Add CVE-2024-7254 to .trivyignore. [Ben Dalling]
+
+* CVE-2024-26308 no longer found in the image. [Ben Dalling]
+
+* CVE-2024-5171. [Ben Dalling]
+
+### Other
+
+* Build(deps): bump docker/setup-buildx-action from 2 to 3. [dependabot[bot]]
+
+  Bumps [docker/setup-buildx-action](https://github.com/docker/setup-buildx-action) from 2 to 3.
+  - [Release notes](https://github.com/docker/setup-buildx-action/releases)
+  - [Commits](https://github.com/docker/setup-buildx-action/compare/v2...v3)
+
+  ---
+  updated-dependencies:
+  - dependency-name: docker/setup-buildx-action
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+* Build(deps): bump docker/build-push-action from 5 to 6. [dependabot[bot]]
+
+  Bumps [docker/build-push-action](https://github.com/docker/build-push-action) from 5 to 6.
+  - [Release notes](https://github.com/docker/build-push-action/releases)
+  - [Commits](https://github.com/docker/build-push-action/compare/v5...v6)
+
+  ---
+  updated-dependencies:
+  - dependency-name: docker/build-push-action
+    dependency-type: direct:production
+    update-type: version-update:semver-major
+  ...
+
+
+## 1.13.8-3.12-1 (2024-10-08)
 
 ### New
 

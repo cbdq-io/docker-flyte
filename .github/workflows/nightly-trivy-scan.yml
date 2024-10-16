@@ -20,10 +20,10 @@ jobs:
 
       - name: Get Latest Tag
         id: get_tag
-        run: echo "LATEST_TAG=$(make tag)" >> $GITHUB_ENV
+        run: echo "LATEST_TAG=$(make docker-tag)" >> $GITHUB_ENV
 
       - name: Scan Image
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@0.28.0
         with:
           image-ref: "${{ env.REGISTRY }}/cbdq-io/flyte:${{ env.LATEST_TAG }}"
           trivy-config: trivy.yaml

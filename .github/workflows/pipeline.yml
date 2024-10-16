@@ -9,7 +9,7 @@ on:
 
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '15 0 * * TUE'
+    - cron: '15 0 * * TUE'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -18,6 +18,9 @@ on:
   workflow_call:
 
 env:
+  BUILDX_NO_DEFAULT_ATTESTATIONS: 1
+  DEVELOP_BRANCH: develop
+  MAIN_BRANCH: main
   REGISTRY: ghcr.io
 
 jobs:
@@ -55,7 +58,7 @@ jobs:
         run: make build
 
       - name: Scan Image
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@0.28.0
         with:
           image-ref: "flyte:latest"
           trivy-config: trivy.yaml
@@ -70,22 +73,46 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up Docker Buildx
+        if: github.ref_name == env.MAIN_BRANCH || github.ref_name == env.DEVELOP_BRANCH
+        uses: docker/setup-buildx-action@v3
+
+      - name: Set the Docker Tag to Latest
+        if: github.ref_name == env.DEVELOP_BRANCH
+        id: get-tag-latest
+        run: echo "TAG=latest" >> $GITHUB_ENV
+
+      - name: Get the Docker Release Tag
+        if: github.ref_name == env.MAIN_BRANCH
+        id: get-tag-release
+        run: echo "TAG=$(make tag)" >> $GITHUB_ENV
+
+      - name: Get Flyte Kit version
+        id: get-flyte-kit-version
+        run: echo "FLYTE_KIT_VERSION=$(make flyte-kit-version)" >> $GITHUB_ENV
+
+      - name: Get Python version
+        id: get-python-version
+        run: echo "FLYTE_PYTHON_VERSION=$(make python-version)" >> $GITHUB_ENV
+
       - name: Log in to the Container Registry
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+        if: github.ref_name == env.MAIN_BRANCH || github.ref_name == env.DEVELOP_BRANCH
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push Latest Image
-        if: github.ref == 'refs/heads/develop'
-        run: make multi-build-latest
-
-      - name: Push Tagged and Latest Image
-        if: github.ref == 'refs/heads/main'
-        run: make multi-build-tagged
-
-      - name: Create Tag
-        if: github.ref == 'refs/heads/main'
-        run: make tag
+      - name: Build and Push Images for Multiple Architectures
+        if: github.ref_name == env.MAIN_BRANCH || github.ref_name == env.DEVELOP_BRANCH
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            ghcr.io/cbdq-io/flyte:${{ env.TAG }}
+          build-args: |
+            DOCKER_IMAGE=ghcr.io/cbdq-io/flyte:${{ env.TAG }}
+            FLYTE_KIT_VERSION=${{ env.FLYTE_KIT_VERSION }}
+            FLYTE_PYTHON_VERSION=${{ env.FLYTE_PYTHON_VERSION }}
+          outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=A Docker Image for Flyte Kit and Spark.

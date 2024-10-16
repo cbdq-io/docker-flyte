@@ -1,6 +1,6 @@
 .EXPORT_ALL_VARIABLES:
 
-BUILD_INCREMENT = -1
+BUILD_INCREMENT = -2
 
 FLYTE_KIT_VERSION = 1.13.8
 
@@ -20,6 +20,7 @@ build:
 	@echo "Docker tag is ${DOCKER_TAG}"
 	@echo "Git tag is ${GIT_TAG}"
 	docker buildx build \
+          --build-arg DOCKER_IMAGE="flyte:latest" \
 	  --build-arg FLYTE_KIT_VERSION=${FLYTE_KIT_VERSION} \
 	  --build-arg FLYTE_PYTHON_VERSION=${FLYTE_PYTHON_VERSION} \
 	  --load \
@@ -35,6 +36,12 @@ cleanall:
 	docker system prune --all --force
 	docker volume prune --all --force
 
+docker-tag:
+	@echo ${DOCKER_TAG}
+
+flyte-kit-version:
+	@echo ${FLYTE_KIT_VERSION}
+
 hotfix-branch:
 	git checkout main
 	git fetch -p origin
@@ -44,24 +51,8 @@ hotfix-branch:
 lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
 
-multi-build-latest:
-	docker buildx create --use
-	docker buildx build --push --platform=linux/amd64,linux/arm64 \
-          --build-arg FLYTE_KIT_VERSION=${FLYTE_KIT_VERSION} \
-          --build-arg FLYTE_PYTHON_VERSION=${FLYTE_PYTHON_VERSION} \
-          --tag ghcr.io/cbdq-io/flyte:latest \
-	  .
-
-multi-build-tagged:
-	@echo "Docker tag is ${DOCKER_TAG}"
-	@echo "Git tag is ${GIT_TAG}"
-	docker buildx create --use
-	docker buildx build --push --platform=linux/amd64,linux/arm64 \
-          --build-arg FLYTE_KIT_VERSION=${FLYTE_KIT_VERSION} \
-          --build-arg FLYTE_PYTHON_VERSION=${FLYTE_PYTHON_VERSION} \
-          --tag ghcr.io/cbdq-io/flyte:latest \
-          --tag ghcr.io/cbdq-io/flyte:${DOCKER_TAG} \
-	  .
+python-version:
+	@echo ${FLYTE_PYTHON_VERSION}
 
 release-branch:
 	git checkout develop
