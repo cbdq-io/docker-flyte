@@ -20,6 +20,7 @@ on:
 env:
   BUILDX_NO_DEFAULT_ATTESTATIONS: 1
   DEVELOP_BRANCH: develop
+  ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   MAIN_BRANCH: main
   REGISTRY: ghcr.io
 
