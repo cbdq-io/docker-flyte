@@ -1,13 +1,26 @@
 # Changelog
 
 
-## 1.13.8-3.12-1
+## 1.13.12-3.12-1
+
+### Changes
+
+* Bump Flyte Kit version from 1.13.8 to 1.13.12. [Ben Dalling]
+
+### Fix
+
+* Add CVE-2023-52428 to allowed vulnerabilities. [Ben Dalling]
+
+
+## 1.13.8-3.12-2 (2024-10-16)
 
 ### New
 
 * Add a description to the image. [Ben Dalling]
 
 ### Changes
+
+* Release to fix broken executables. [Ben Dalling]
 
 * Bump Flyte Kit version from 1.13.4 to 1.13.5. [Ben Dalling]
 
