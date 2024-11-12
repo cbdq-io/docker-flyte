@@ -1,5 +1,5 @@
 ---
-name: Nightly Trivy Scan
+name: Periodic Trivy Scan
 
 on:
   schedule:
@@ -13,7 +13,7 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
-  NightlyTrivy:
+  Trivy:
     runs-on: ubuntu-latest
 
     steps:
