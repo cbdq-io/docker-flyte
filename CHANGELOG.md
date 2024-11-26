@@ -5,6 +5,8 @@
 
 ### Changes
 
+* Add CVE-2024-47535 to allowed vulnerabilities. [Ben Dalling]
+
 * Bump Flyte Kit from 1.13.13 to 1.13.14. [Ben Dalling]
 
 ### Other
