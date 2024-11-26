@@ -1,6 +1,28 @@
 # Changelog
 
 
+## 1.13.14-3.12-1
+
+### Changes
+
+* Bump Flyte Kit from 1.13.13 to 1.13.14. [Ben Dalling]
+
+### Other
+
+* Build(deps): bump aquasecurity/trivy-action from 0.28.0 to 0.29.0. [dependabot[bot]]
+
+  Bumps [aquasecurity/trivy-action](https://github.com/aquasecurity/trivy-action) from 0.28.0 to 0.29.0.
+  - [Release notes](https://github.com/aquasecurity/trivy-action/releases)
+  - [Commits](https://github.com/aquasecurity/trivy-action/compare/0.28.0...0.29.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: aquasecurity/trivy-action
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+
 ## 1.13.13-3.12-1 (2024-11-12)
 
 ### Changes
