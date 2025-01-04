@@ -1,6 +1,13 @@
 # Changelog
 
 
+## 1.14.3-3.12-1
+
+### Changes
+
+* Bump Flytekit version from 1.14.0 to 1.14.3. [Ben Dalling]
+
+
 ## 1.14.0-3.12-1 (2024-12-09)
 
 ### Changes
