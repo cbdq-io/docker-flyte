@@ -78,6 +78,7 @@ Feature: Docker Image for Flyte
       Examples:
         | command |
         | java    |
+        | useradd |
 
     Scenario: Check Java 11 is Installed
       Given the TestInfra host with URL "local://" is ready
