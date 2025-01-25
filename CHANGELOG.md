@@ -1,7 +1,16 @@
 # Changelog
 
 
-## 1.14.4-3.12-1
+## 1.14.6-3.12-1
+
+### Fix
+
+* Ensure useradd is on the path. [Ben Dalling]
+
+* Bump Flyte Kit from 1.14.4 to 1.14.6. [Ben Dalling]
+
+
+## 1.14.4-3.12-1 (2025-01-18)
 
 ### Fix
 
