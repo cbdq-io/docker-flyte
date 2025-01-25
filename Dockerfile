@@ -37,7 +37,7 @@ ENV FLYTE_INTERNAL_IMAGE="$DOCKER_IMAGE"
 ENV HOME=/home/flyte
 ENV JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto
 ENV SPARK_HOME=${HOME}/.local/lib/python${FLYTE_PYTHON_VERSION}/site-packages/pyspark
-ENV PATH=${HOME}/.local/bin:${JAVA_HOME}/bin:${SPARK_HOME}/bin:/usr/local/bin:/usr/bin:/bin
+ENV PATH=${HOME}/.local/bin:${JAVA_HOME}/bin:${SPARK_HOME}/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 WORKDIR /home/flyte
 
