@@ -1,6 +1,13 @@
 # Changelog
 
 
+## 1.14.6-3.12-1
+
+### Fix
+
+* Use a Spark 3.5.4 base image. [Ben Dalling]
+
+
 ## 1.14.6-3.12-1 (2025-01-25)
 
 ### Fix
