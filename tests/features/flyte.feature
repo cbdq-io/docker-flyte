@@ -18,6 +18,11 @@ Feature: Docker Image for Flyte
           | flytekit              |
           | flytekitplugins-spark |
 
+    Scenario: PySpark Version Matches Docker Image Tag
+      Given the TestInfra host with URL "local://" is ready
+      When the TestInfra pip package is pyspark
+      Then the TestInfra pip package version is 3.5.4
+
     Scenario Outline: Other Python Packages
       Given the TestInfra host with URL "local://" is ready
       When the TestInfra pip package is <pip_package>
@@ -43,34 +48,14 @@ Feature: Docker Image for Flyte
       When the TestInfra command is "pyflyte --help"
       Then the TestInfra command return code is 0
 
-    Scenario Outline: Fixed System Vulnerabilities
-      Given the TestInfra host with URL "local://" is ready
-      When the Vulnerability is <Vulnerability>
-      And the TestInfra package is <Library>
-      Then the TestInfra package version will be greater than or equal to <FixedVersion>
-
-      Examples:
-        | Vulnerability | Library | FixedVersion    |
-        | CVE-2024-5171 | libaom3 | 3.6.0-1+deb12u1 |
-
     Scenario: Flyte Non-Root User
         Given the TestInfra host with URL "local://" is ready
-        When the TestInfra user is flyte
+        When the TestInfra user is flytekit
         Then the TestInfra user is present
-        And the TestInfra user group is flyte
+        And the TestInfra user group is flytekit
+        And the TestInfra user uid is 1000
+        And the TestInfra user gid is 1000
         And the TestInfra user shell is /usr/sbin/nologin
-
-    Scenario Outline: Corretto Configuration
-        Given the TestInfra host with URL "local://" is ready
-        When the TestInfra file is <file_name>
-        Then the TestInfra file is present
-        And the TestInfra file type is file
-        And the TestInfra file owner is root
-        And the TestInfra file group is root
-        Examples:
-          | file_name                                |
-          | /usr/share/keyrings/corretto-keyring.gpg |
-          | /etc/apt/sources.list.d/corretto.list    |
 
     Scenario Outline: Check Commands Installed in the Path
       Given the TestInfra host with URL "local://" is ready within 10 seconds
@@ -79,21 +64,3 @@ Feature: Docker Image for Flyte
         | command |
         | java    |
         | useradd |
-
-    Scenario: Check Java 11 is Installed
-      Given the TestInfra host with URL "local://" is ready
-      When the TestInfra command is "java -version"
-      And the TestInfra package is java-11-amazon-corretto-jdk
-      Then the TestInfra command stderr contains "Corretto-11"
-      And the TestInfra command stderr contains the regex "openjdk version \"11\\W[0-9]"
-      And the TestInfra command stdout is empty
-      And the TestInfra command return code is 0
-      And the TestInfra package is installed
-
-    Scenario: Entrypoint
-      Given the TestInfra host with URL "local://" is ready
-      When the TestInfra file is /usr/local/bin/entrypoint.sh
-      Then the TestInfra file type is file
-      And the TestInfra file owner is flyte
-      And the TestInfra file group is flyte
-      And the TestInfra file mode is 0o555

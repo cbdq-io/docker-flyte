@@ -3,7 +3,6 @@ version: "3"
 
 services:
   delta:
-    entrypoint: /usr/local/bin/entrypoint.sh
     image: flyte:latest
     volumes:
       - ".:/example"
