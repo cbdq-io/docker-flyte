@@ -52,4 +52,5 @@ RUN pip install -U --no-cache-dir --quiet --user setuptools \
         flytekitplugins-spark==${FLYTE_KIT_VERSION} \
         'delta-spark>=3.1.0,<3.2.0' \
         kubernetes \
-    && python3 -m pip install --no-cache-dir --quiet --user --upgrade six
+    && python3 -m pip install --no-cache-dir --quiet --user --upgrade six \
+    && rm -rf /home/flytekit/.local/lib/python3.12/site-packages/google/auth/crypt/__pycache__
