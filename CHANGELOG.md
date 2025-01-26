@@ -7,6 +7,14 @@
 
 * Use a Spark 3.5.4 base image. [Ben Dalling]
 
+### Other
+
+* Fix(ci): Update .trivyignore. [Ben Dalling]
+
+* Fix(chore): Remove __pycache__ with false positive for a security alert. [Ben Dalling]
+
+* Fix(ci): Correct execution of Delta test. [Ben Dalling]
+
 
 ## 1.14.6-3.12-1 (2025-01-25)
 
