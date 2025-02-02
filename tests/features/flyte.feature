@@ -16,12 +16,17 @@ Feature: Docker Image for Flyte
         Examples:
           | pip_package           |
           | flytekit              |
+          | flytekitplugins-envd  |
           | flytekitplugins-spark |
 
-    Scenario: PySpark Version Matches Docker Image Tag
+    Scenario Outline: PySpark Version Matches Docker Image Tag
       Given the TestInfra host with URL "local://" is ready
-      When the TestInfra pip package is pyspark
-      Then the TestInfra pip package version is 3.5.4
+      When the TestInfra pip package is <pip_package>
+      Then the TestInfra pip package version is <version>
+      Examples:
+        | pip_package | version |
+        | envd        | 0.4.3   |
+        | pyspark     | 3.5.4   |
 
     Scenario Outline: Other Python Packages
       Given the TestInfra host with URL "local://" is ready
@@ -39,6 +44,8 @@ Feature: Docker Image for Flyte
       Examples:
         | executable      |
         | flyte-cli       |
+        | git             |
+        | go              |
         | pyflyte         |
         | pyflyte-execute |
         | pyspark         |
