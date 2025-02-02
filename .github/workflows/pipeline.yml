@@ -6,6 +6,10 @@ name: Pipeline
 
 on:
   push:
+    branches:
+      - '**'  # This means it runs on all branches
+    tags-ignore:
+      - '**'  # This ensures it does not run on tag pushes
 
   schedule:
     # * is a special character in YAML so you have to quote this string
