@@ -43,8 +43,6 @@ USER flytekit
 ENV ENVD_VERSION=0.4.3
 ENV FLYTE_INTERNAL_IMAGE="$DOCKER_IMAGE"
 ENV HOME=/home/flytekit
-ENV JAVA_HOME=/opt/java/openjdk
-ENV SPARK_HOME=/opt/spark
 ENV PATH=${HOME}/.local/bin:${JAVA_HOME}/bin:${SPARK_HOME}/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/go-1.22/bin
 
 WORKDIR /home/flytekit
