@@ -5,6 +5,8 @@
 
 ### Fix
 
+* Trivy should concentrate on vulnerabilities. [Ben Dalling]
+
 * Swap venv for envd. [Ben Dalling]
 
 * Use a Spark 3.5.4 base image. [Ben Dalling]
