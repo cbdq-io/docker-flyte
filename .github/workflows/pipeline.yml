@@ -66,6 +66,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.29.0
         with:
           image-ref: "flyte:latest"
+          scanners: "vuln"
           trivy-config: trivy.yaml
 
   CD:

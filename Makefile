@@ -71,7 +71,7 @@ test:
 	docker compose -f docker-compose.test.yml run --build --rm sut
 
 trivy:
-	trivy image --severity HIGH,CRITICAL --ignore-unfixed flyte:latest
+	trivy --scanners vuln image flyte:latest
 
 update-trivy-ignore:
-	trivy image --format json --ignore-unfixed --severity HIGH,CRITICAL flyte:latest | jq -r '.Results[1].Vulnerabilities[].VulnerabilityID' | sort -u | tee .trivyignore
+	trivy image --scanners vuln --format json --ignore-unfixed --severity HIGH,CRITICAL flyte:latest | jq -r '.Results[1].Vulnerabilities[].VulnerabilityID' | sort -u | tee .trivyignore
