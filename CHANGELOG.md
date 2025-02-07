@@ -5,6 +5,8 @@
 
 ### Fix
 
+* We are dropping Spark and Deltalake. [Ben Dalling]
+
 * Trivy should concentrate on vulnerabilities. [Ben Dalling]
 
 * Swap venv for envd. [Ben Dalling]
