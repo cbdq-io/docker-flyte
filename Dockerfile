@@ -20,7 +20,8 @@ ARG FLYTE_UID=1000
 
 USER root
 # hadolint ignore=DL3005,DL3008,DL3013
-RUN useradd --home-dir /home/flytekit --create-home --uid ${FLYTE_UID} --shell /usr/sbin/nologin flytekit
+RUN useradd --home-dir /home/flytekit --create-home --uid ${FLYTE_UID} --shell /usr/sbin/nologin flytekit \
+  && chown -R flytekit /root /home
 
 USER flytekit
 
