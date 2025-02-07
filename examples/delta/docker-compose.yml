@@ -1,9 +1,0 @@
----
-version: "3"
-
-services:
-  delta:
-    image: flyte:latest
-    volumes:
-      - ".:/example"
-    working_dir: /example
