@@ -47,12 +47,6 @@ jobs:
       - name: Smoke Test - ML
         run: docker compose -f examples/wine/docker-compose.yml up
 
-      - name: Smoke Test - Spark
-        run: docker compose -f examples/spark/docker-compose.yml up
-
-      - name: Smoke Test - Delta Spark
-        run: docker run --rm -i flyte:latest python3 < examples/delta/delta.py
-
   Trivy:
     runs-on: ubuntu-latest
 

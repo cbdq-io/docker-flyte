@@ -1,2 +1,2 @@
 FROM flyte:latest
-RUN pip install pyarrow scikit-learn
+RUN pip install pandas pyarrow scikit-learn
