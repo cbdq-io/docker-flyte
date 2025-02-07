@@ -25,7 +25,7 @@ RUN useradd --home-dir /home/flytekit --create-home --uid ${FLYTE_UID} --shell /
 
 USER flytekit
 
-WORKDIR /home/flytekit
+WORKDIR /root
 
 # hadolint ignore=DL3003,DL3013
 RUN pip install --no-cache-dir --quiet --user \
