@@ -17,6 +17,8 @@
 
 ### Other
 
+* Fix(chore): Correct download URL for the x86_64 arch (II). [Ben Dalling]
+
 * Fix(chore): Correct download URL for the x86_64 arch. [Ben Dalling]
 
 * Fix(ci): Update .trivyignore. [Ben Dalling]
