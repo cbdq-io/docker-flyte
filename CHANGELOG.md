@@ -5,6 +5,8 @@
 
 ### Fix
 
+* Add envd to the container image. [Ben Dalling]
+
 * We are dropping Spark and Deltalake. [Ben Dalling]
 
 * Trivy should concentrate on vulnerabilities. [Ben Dalling]
