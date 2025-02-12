@@ -1,4 +1,24 @@
 ARG FLYTE_PYTHON_VERSION
+FROM python:${FLYTE_PYTHON_VERSION}-slim-bookworm AS builder
+
+ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin
+ENV ENVD_VERSION=0.4.3
+
+COPY install-go.sh /usr/local/bin/install-go.sh
+
+# hadolint ignore=DL3003,DL3008,DL3013
+RUN apt-get update \
+  && apt-get --no-install-recommends --yes install \
+    git \
+    make \
+    wget \
+  && /usr/local/bin/install-go.sh \
+  && git clone --depth 1 --branch "v${ENVD_VERSION}" https://github.com/tensorchord/envd.git /tmp/envd \
+  && cd /tmp/envd \
+  && pip install --no-cache-dir setuptools \
+  && make pypi-build
+
+ARG FLYTE_PYTHON_VERSION
 FROM python:${FLYTE_PYTHON_VERSION}-slim-bookworm
 
 ARG DOCKER_IMAGE
@@ -26,10 +46,12 @@ RUN useradd --home-dir /home/flytekit --create-home --uid ${FLYTE_UID} --shell /
 USER flytekit
 
 WORKDIR /root
+COPY --from=builder /tmp/envd/dist/envd-0.4.3-py2.py3-none-linux_*.whl /tmp/
 
-# hadolint ignore=DL3003,DL3013
+# hadolint ignore=DL3013
 RUN pip install --no-cache-dir --quiet --user \
         flytekit==${FLYTE_KIT_VERSION} \
         kubernetes \
         setuptools \
+        /tmp/envd-0.4.3-py2.py3-none-linux_*.whl \
     && pip install --no-cache-dir --quiet --user --upgrade six

@@ -23,6 +23,7 @@ Feature: Docker Image for Flyte
       Then the TestInfra pip package is present
       Examples:
         | pip_package |
+        | envd        |
         | kubernetes  |
         | setuptools  |
 

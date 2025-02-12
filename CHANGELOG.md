@@ -1,9 +1,15 @@
 # Changelog
 
 
-## 1.14.6-3.12-1
+## Unreleased
 
 ### Fix
+
+* Migrate to the Conventional Commits Git Change Log. [Ben Dalling]
+
+* Ensure smoke test runns correctly. [Ben Dalling]
+
+* Add envd to the container image. [Ben Dalling]
 
 * We are dropping Spark and Deltalake. [Ben Dalling]
 
@@ -12,14 +18,6 @@
 * Swap venv for envd. [Ben Dalling]
 
 * Use a Spark 3.5.4 base image. [Ben Dalling]
-
-### Other
-
-* Fix(ci): Update .trivyignore. [Ben Dalling]
-
-* Fix(chore): Remove __pycache__ with false positive for a security alert. [Ben Dalling]
-
-* Fix(ci): Correct execution of Delta test. [Ben Dalling]
 
 
 ## 1.14.6-3.12-1 (2025-01-25)
@@ -376,7 +374,5 @@
 * Create LICENSE. [Ben Dalling]
 
   new: doc: Add BSD-3 licence.
-
-* Initial commit. [Ben Dalling]
 
 
