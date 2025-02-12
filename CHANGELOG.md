@@ -1,7 +1,26 @@
 # Changelog
 
 
-## 1.14.6-3.12-1
+## Unreleased
+
+### Fix
+
+* Migrate to the Conventional Commits Git Change Log. [Ben Dalling]
+
+* Ensure smoke test runns correctly. [Ben Dalling]
+
+* Add envd to the container image. [Ben Dalling]
+
+* We are dropping Spark and Deltalake. [Ben Dalling]
+
+* Trivy should concentrate on vulnerabilities. [Ben Dalling]
+
+* Swap venv for envd. [Ben Dalling]
+
+* Use a Spark 3.5.4 base image. [Ben Dalling]
+
+
+## 1.14.6-3.12-1 (2025-01-25)
 
 ### Fix
 
@@ -355,7 +374,5 @@
 * Create LICENSE. [Ben Dalling]
 
   new: doc: Add BSD-3 licence.
-
-* Initial commit. [Ben Dalling]
 
 

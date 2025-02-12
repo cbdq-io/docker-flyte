@@ -6,6 +6,10 @@ name: Pipeline
 
 on:
   push:
+    branches:
+      - '**'  # This means it runs on all branches
+    tags-ignore:
+      - '**'  # This ensures it does not run on tag pushes
 
   schedule:
     # * is a special character in YAML so you have to quote this string
@@ -41,13 +45,7 @@ jobs:
         run: make test
 
       - name: Smoke Test - ML
-        run: docker compose -f examples/wine/docker-compose.yml up
-
-      - name: Smoke Test - Spark
-        run: docker compose -f examples/spark/docker-compose.yml up
-
-      - name: Smoke Test - Delta Spark
-        run: docker run --rm -i flyte:latest python < examples/delta/delta.py
+        run: docker compose -f examples/wine/docker-compose.yml up --build
 
   Trivy:
     runs-on: ubuntu-latest
@@ -62,6 +60,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.29.0
         with:
           image-ref: "flyte:latest"
+          scanners: "vuln"
           trivy-config: trivy.yaml
 
   CD:
