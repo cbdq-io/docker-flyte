@@ -46,12 +46,12 @@ RUN useradd --home-dir /home/flytekit --create-home --uid ${FLYTE_UID} --shell /
 USER flytekit
 
 WORKDIR /root
-COPY --from=builder /tmp/envd/dist/envd-0.4.3-py2.py3-none-linux_aarch64.whl /tmp/
+COPY --from=builder /tmp/envd/dist/envd-0.4.3-py2.py3-none-linux_*.whl /tmp/
 
 # hadolint ignore=DL3013
 RUN pip install --no-cache-dir --quiet --user \
         flytekit==${FLYTE_KIT_VERSION} \
         kubernetes \
         setuptools \
-        /tmp/envd-0.4.3-py2.py3-none-linux_aarch64.whl \
+        /tmp/envd-0.4.3-py2.py3-none-linux_*.whl \
     && pip install --no-cache-dir --quiet --user --upgrade six
