@@ -1,6 +1,13 @@
 # Changelog
 
 
+## Unreleased
+
+### Fix
+
+* Bump Flyte Kit from 1.14.6 to 1.15.0. [Ben Dalling]
+
+
 ## 1.14.6-3.12-2 (2025-02-12)
 
 ### Fix
