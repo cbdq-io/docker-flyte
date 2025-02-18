@@ -2,7 +2,7 @@
 
 BUILD_INCREMENT = -1
 
-FLYTE_KIT_VERSION = 1.14.6
+FLYTE_KIT_VERSION = 1.15.0
 
 FLYTE_PYTHON_VERSION = 3.12
 
@@ -20,7 +20,7 @@ build:
 	@echo "Docker tag is ${DOCKER_TAG}"
 	@echo "Git tag is ${GIT_TAG}"
 	docker buildx build \
-          --build-arg DOCKER_IMAGE="flyte:latest" \
+      --build-arg DOCKER_IMAGE="flyte:latest" \
 	  --build-arg FLYTE_KIT_VERSION=${FLYTE_KIT_VERSION} \
 	  --build-arg FLYTE_PYTHON_VERSION=${FLYTE_PYTHON_VERSION} \
 	  --load \
