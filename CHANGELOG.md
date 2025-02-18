@@ -5,6 +5,13 @@
 
 ### Fix
 
+* Bump Flyte Kit from 1.14.6 to 1.15.0. [Ben Dalling]
+
+
+## 1.14.6-3.12-2 (2025-02-12)
+
+### Fix
+
 * Migrate to the Conventional Commits Git Change Log. [Ben Dalling]
 
 * Ensure smoke test runns correctly. [Ben Dalling]
