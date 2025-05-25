@@ -5,6 +5,8 @@
 
 ### Fix
 
+* Add CVE-2025-22869 to allowed vulnerabilities. [Ben Dalling]
+
 * Bump flytekit version from 1.15.0 to 1.15.4. [Ben Dalling]
 
 ### Other
