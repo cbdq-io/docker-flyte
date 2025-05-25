@@ -1,6 +1,28 @@
 # Changelog
 
 
+## Unreleased
+
+### Fix
+
+* Bump flytekit version from 1.15.0 to 1.15.4. [Ben Dalling]
+
+### Other
+
+* Build(deps): bump aquasecurity/trivy-action from 0.29.0 to 0.30.0. [dependabot[bot]]
+
+  Bumps [aquasecurity/trivy-action](https://github.com/aquasecurity/trivy-action) from 0.29.0 to 0.30.0.
+  - [Release notes](https://github.com/aquasecurity/trivy-action/releases)
+  - [Commits](https://github.com/aquasecurity/trivy-action/compare/0.29.0...0.30.0)
+
+  ---
+  updated-dependencies:
+  - dependency-name: aquasecurity/trivy-action
+    dependency-type: direct:production
+    update-type: version-update:semver-minor
+  ...
+
+
 ## 1.15.0-3.12-1 (2025-02-18)
 
 ### Fix
