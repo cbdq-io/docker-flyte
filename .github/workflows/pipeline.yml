@@ -57,7 +57,7 @@ jobs:
         run: make build
 
       - name: Scan Image
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@0.33.1
         with:
           image-ref: "flyte:latest"
           scanners: "vuln"
